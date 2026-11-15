@@ -202,14 +202,14 @@ advanced-retail-analytics-rfm/
 |
 |-- Advanced_Retail_Analytics_RFM_Report.docx
 |
-|-- figures/
+|
 |   |-- rfm_segment_overview.png
 |   |-- kmeans_clusters.png
 |   |-- sales_trends.png
 |   |-- weekly_forecast_backtest.png
 |   |-- weekly_product_forecast.png
 |
-|-- outputs/
+|
 |   |-- rfm_customer_segments.csv
 |   |-- rfm_segment_summary.csv
 |   |-- customer_clusters.csv
@@ -217,6 +217,17 @@ advanced-retail-analytics-rfm/
 |   |-- rfm_vs_kmeans.csv
 |   |-- audit_metrics.json
 ```
+
+## Dataset
+
+The original dataset is available from the
+[UCI Machine Learning Repository](https://archive.ics.uci.edu/dataset/352/online+retail).
+
+The dataset is not included in this repository.
+
+To reproduce the analysis, download the dataset,
+convert it to CSV if necessary, name it `data.csv`,
+and place it in the project's root directory.
 
 ## Business Insights
 
