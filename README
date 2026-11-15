@@ -1,0 +1,258 @@
+
+# Advanced Retail Analytics & RFM Customer Segmentation
+
+**Python | Pandas | Scikit-learn | SciPy | Statsmodels | Matplotlib**
+
+A reproducible analysis of **541,909 online retail transaction records**, combining exploratory sales analysis, customer segmentation, statistical testing, Random Forest modelling and time-series forecasting.
+
+The updated project adds **RFM (Recency, Frequency, Monetary) customer segmentation** to the original K-Means clustering analysis.
+
+**Author:** Shreyas Kamat
+
+**Dataset:** [UCI Online Retail](https://archive.ics.uci.edu/dataset/352/online+retail)
+
+## Project Objectives
+
+- Explore retail sales trends and purchasing patterns.
+- Clean transaction data and assess data quality.
+- Segment customers using RFM analysis.
+- Identify purchasing patterns using K-Means clustering.
+- Perform statistical tests on sales distributions.
+- Train Random Forest models to predict purchase quantities.
+- Evaluate SARIMA time-series forecasting against baseline models.
+
+## Dataset Overview
+
+The dataset contains online retail transactions recorded between December 2010 and December 2011.
+
+| Metric | Value |
+|---|---:|
+| Original transaction records | 541,909 |
+| Cleaned positive transaction records | 397,884 |
+| Unique customers analysed | 4,338 |
+| Distinct invoices | 18,532 |
+| Total positive recorded sales | £8,911,407.90 |
+
+**Note:** Positive recorded sales exclude cancellation and refund adjustments and should not be interpreted as verified net revenue.
+
+## 1. Exploratory Data Analysis
+
+The exploratory analysis examines:
+
+- Monthly and quarterly sales trends
+- Product-level purchasing patterns
+- Transaction quantity distributions
+- High-value customers
+- Seasonal sales fluctuations
+
+A detailed product-level analysis focuses on **WHITE HANGING HEART T-LIGHT HOLDER**.
+
+## 2. RFM Customer Segmentation
+
+RFM is a customer segmentation technique based on three purchasing metrics.
+
+| Metric | Definition |
+|---|---|
+| Recency | Days since the customer's most recent purchase |
+| Frequency | Number of distinct invoices per customer |
+| Monetary | Total positive spending by the customer |
+
+Each metric is assigned a score from 1 to 4. The combined RFM score ranges from 3 to 12.
+
+### RFM Results
+
+| Customer Segment | Customers | Share of Positive Sales |
+|---|---:|---:|
+| Superstar | 876 | 66.25% |
+| Future Champion | 1,159 | 21.82% |
+| High Potential | 886 | 7.46% |
+| Low Relevance | 1,417 | 4.48% |
+
+### Key Finding
+
+**876 Superstar customers account for 66.25% of recorded positive sales**, despite representing approximately 20.19% of the analysed customer base.
+
+This indicates that purchasing value is concentrated among a relatively small customer segment.
+
+The segments use illustrative RFM thresholds and should be validated before use in business decisions.
+
+### RFM Visualisation
+
+![RFM Customer Segmentation](figures/rfm_segment_overview.png)
+
+## 3. K-Means Customer Clustering
+
+K-Means clustering is used to identify customer groups based on:
+
+- Total purchase value
+- Total quantity purchased
+- Average transaction quantity
+- Number of orders
+
+Data transformation and feature standardisation are applied before clustering.
+
+Three exploratory customer clusters are generated.
+
+Unlike RFM, K-Means identifies groups based on similarity across purchasing features rather than predefined RFM score thresholds.
+
+![K-Means Customer Clusters](figures/kmeans_clusters.png)
+
+## 4. Statistical Analysis
+
+Statistical analysis includes:
+
+- Shapiro-Wilk normality tests
+- Examination of skewed transaction distributions
+- Mann-Whitney U testing
+- Comparison of purchasing patterns across periods
+
+These tests help describe differences in observed data distributions.
+
+## 5. Random Forest Predictive Modelling
+
+Random Forest regression is applied to predict transformed purchase quantities.
+
+The analysis uses invoice-grouped holdout evaluation.
+
+### Model Results
+
+| Customer Group | R-squared |
+|---|---:|
+| Highest-spend cluster | 0.338 |
+| Remaining clusters | 0.294 |
+
+The results indicate limited predictive performance using the selected features.
+
+Feature importance is used to understand model behaviour. It does not establish causal price elasticity.
+
+## 6. Time-Series Forecasting
+
+Weekly positive sales for the selected product are analysed using SARIMA.
+
+A seasonal model is evaluated against simple forecasting baselines using an eight-week holdout period.
+
+### Forecast Evaluation
+
+| Model | Mean Absolute Error |
+|---|---:|
+| SARIMA | £1,506.58 |
+| Naive forecast | £1,020.69 |
+| Seasonal naive forecast | £1,385.94 |
+
+The simple naive forecast achieved the lowest error in this evaluation.
+
+Therefore, the SARIMA results are exploratory and do not establish reliable forecasting performance.
+
+![Forecast Backtesting](figures/weekly_forecast_backtest.png)
+
+## Technologies Used
+
+- Python
+- Pandas
+- NumPy
+- Matplotlib
+- SciPy
+- Scikit-learn
+- Statsmodels
+- Jupyter Notebook
+- Google Colab
+
+## Installation
+
+### Step 1: Clone the Repository
+
+```bash
+git clone https://github.com/YOUR_USERNAME/advanced-retail-analytics-rfm.git
+cd advanced-retail-analytics-rfm
+```
+
+Replace `YOUR_USERNAME` with your GitHub username.
+
+### Step 2: Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### Step 3: Run the Python Script
+
+```bash
+python retail_analytics_rfm.py
+```
+
+Alternatively, open:
+
+`Retail_Analytics_RFM_Updated.ipynb`
+
+in Jupyter Notebook or Google Colab.
+
+Ensure that `data.csv` is available in the working directory.
+
+## Project Structure
+
+```text
+advanced-retail-analytics-rfm/
+|
+|-- README.md
+|-- requirements.txt
+|-- data.csv
+|
+|-- Retail_Analytics_RFM_Updated.ipynb
+|-- retail_analytics_rfm.py
+|
+|-- Advanced_Retail_Analytics_RFM_Report.docx
+|
+|-- figures/
+|   |-- rfm_segment_overview.png
+|   |-- kmeans_clusters.png
+|   |-- sales_trends.png
+|   |-- weekly_forecast_backtest.png
+|   |-- weekly_product_forecast.png
+|
+|-- outputs/
+|   |-- rfm_customer_segments.csv
+|   |-- rfm_segment_summary.csv
+|   |-- customer_clusters.csv
+|   |-- random_forest_metrics.csv
+|   |-- rfm_vs_kmeans.csv
+|   |-- audit_metrics.json
+```
+
+## Business Insights
+
+1. **High-value customers:** A relatively small customer segment contributes most recorded positive sales.
+2. **Customer segmentation:** RFM and K-Means offer complementary views of customer purchasing behaviour.
+3. **Data quality:** Cancellation handling is essential when estimating actual net revenue.
+4. **Forecast evaluation:** Simple forecasting baselines should be tested before adopting more complex models.
+
+## Limitations
+
+- Cancellation and refund records have not been fully reconciled with their original transactions.
+- RFM customer classifications use illustrative scoring thresholds.
+- K-Means clusters have not been independently validated as business customer categories.
+- Random Forest evaluation uses an invoice-grouped split rather than a chronological split.
+- The SARIMA model underperformed the naive forecasting benchmarks.
+- Some months contain incomplete observation periods.
+
+## Future Improvements
+
+- Calculate refund-adjusted customer monetary values.
+- Validate RFM segments using future purchasing behaviour.
+- Evaluate alternative clustering methods.
+- Improve predictive features and chronological model validation.
+- Compare forecasting models using rolling-origin backtesting.
+- Develop an interactive customer segmentation dashboard.
+
+## Dataset Source
+
+UCI Machine Learning Repository — Online Retail Dataset
+
+https://archive.ics.uci.edu/dataset/352/online+retail
+
+## Author
+
+**Shreyas Kamat**
+
+GitHub: https://github.com/TYTKL456
+
+LinkedIn: https://www.linkedin.com/in/shreyas-kamat-ab0173233/
