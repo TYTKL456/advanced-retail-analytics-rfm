@@ -1,0 +1,118 @@
+{
+  "data_quality": {
+    "raw_rows": 541909,
+    "clean_rows": 397884,
+    "excluded_rows": 144025,
+    "missing_customer_rows": 135080,
+    "nonpositive_quantity_rows": 10624,
+    "nonpositive_price_rows": 2517,
+    "unique_customers": 4338,
+    "unique_invoices": 18532,
+    "positive_sales_gbp": 8911407.904,
+    "first_date": "2010-12-01 08:26:00",
+    "last_date": "2011-12-09 12:50:00"
+  },
+  "quarterly_product_sales_gbp": {
+    "2011Q1": 25154.9,
+    "2011Q2": 24683.97,
+    "2011Q3": 20591.07,
+    "2011Q4": 20416.16
+  },
+  "rfm_segments": [
+    {
+      "RFM_Segment": "Superstar",
+      "Customers": 876,
+      "AvgRecencyDays": 13.341324,
+      "AvgDistinctInvoices": 12.057078,
+      "PositiveSales": 5903469.08,
+      "CustomerSharePct": 20.193638,
+      "SalesSharePct": 66.2462
+    },
+    {
+      "RFM_Segment": "Future Champion",
+      "Customers": 1159,
+      "AvgRecencyDays": 46.936152,
+      "AvgDistinctInvoices": 3.962899,
+      "PositiveSales": 1944248.341,
+      "CustomerSharePct": 26.717381,
+      "SalesSharePct": 21.817522
+    },
+    {
+      "RFM_Segment": "High Potential",
+      "Customers": 886,
+      "AvgRecencyDays": 83.65237,
+      "AvgDistinctInvoices": 1.952596,
+      "PositiveSales": 664483.382,
+      "CustomerSharePct": 20.424159,
+      "SalesSharePct": 7.456548
+    },
+    {
+      "RFM_Segment": "Low Relevance",
+      "Customers": 1417,
+      "AvgRecencyDays": 184.347918,
+      "AvgDistinctInvoices": 1.162315,
+      "PositiveSales": 399207.101,
+      "CustomerSharePct": 32.664822,
+      "SalesSharePct": 4.479731
+    }
+  ],
+  "kmeans_clusters": [
+    {
+      "Cluster": 0,
+      "Customers": 1700,
+      "AvgSpend": 270.011442,
+      "AvgUnits": 142.389412,
+      "AvgOrders": 1.339412
+    },
+    {
+      "Cluster": 1,
+      "Customers": 1811,
+      "AvgSpend": 1104.60285,
+      "AvgUnits": 657.358366,
+      "AvgOrders": 3.187189
+    },
+    {
+      "Cluster": 2,
+      "Customers": 827,
+      "AvgSpend": 7801.635659,
+      "AvgUnits": 4516.655381,
+      "AvgOrders": 12.675937
+    }
+  ],
+  "statistical_tests": {
+    "september_observed_days": 26,
+    "october_observed_days": 26,
+    "september_shapiro_stat": 0.7086713882661442,
+    "september_shapiro_p": 6.983939030591573e-06,
+    "october_shapiro_stat": 0.813667093029149,
+    "october_shapiro_p": 0.0003034669058289128,
+    "mann_whitney_u": 427.0,
+    "mann_whitney_p": 0.10527661079249591
+  },
+  "random_forest": [
+    {
+      "ClusterGroup": "Other clusters",
+      "TestRows": 34231,
+      "R2_LogQuantity": 0.2939834850020965,
+      "MAE_LogUnits": 0.5988571029371909,
+      "UnitPriceImportance": 0.7977895572140863,
+      "InvoiceHourImportance": 0.20221044278591374
+    },
+    {
+      "ClusterGroup": "High-spend cluster",
+      "TestRows": 43172,
+      "R2_LogQuantity": 0.3381073697929369,
+      "MAE_LogUnits": 0.665105401722483,
+      "UnitPriceImportance": 0.874577282185009,
+      "InvoiceHourImportance": 0.12542271781499106
+    }
+  ],
+  "forecast_holdout": {
+    "weeks_observed": 49,
+    "test_weeks": 8,
+    "sarima_test_mae_gbp": 1506.5788474611277,
+    "flat_naive_test_mae_gbp": 1020.6925000000001,
+    "lag14_naive_test_mae_gbp": 1385.93875,
+    "train_lag14_ar_coef": 0.6601661605726294
+  }
+}
