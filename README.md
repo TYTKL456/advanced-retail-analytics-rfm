@@ -78,7 +78,7 @@ The segments use illustrative RFM thresholds and should be validated before use 
 
 ### RFM Visualisation
 
-![RFM Customer Segmentation](figures/rfm_segment_overview.png)
+![RFM Customer Segmentation](rfm_segment_overview.png)
 
 ## 3. K-Means Customer Clustering
 
@@ -95,7 +95,7 @@ Three exploratory customer clusters are generated.
 
 Unlike RFM, K-Means identifies groups based on similarity across purchasing features rather than predefined RFM score thresholds.
 
-![K-Means Customer Clusters](figures/kmeans_clusters.png)
+![K-Means Customer Clusters](kmeans_clusters.png)
 
 ## 4. Statistical Analysis
 
@@ -143,7 +143,7 @@ The simple naive forecast achieved the lowest error in this evaluation.
 
 Therefore, the SARIMA results are exploratory and do not establish reliable forecasting performance.
 
-![Forecast Backtesting](figures/weekly_forecast_backtest.png)
+![Forecast Backtesting](weekly_forecast_backtest.png)
 
 ## Technologies Used
 
