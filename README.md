@@ -162,16 +162,14 @@ Therefore, the SARIMA results are exploratory and do not establish reliable fore
 ### Step 1: Clone the Repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/advanced-retail-analytics-rfm.git
+git clone https://github.com/TYTKL456/advanced-retail-analytics-rfm.git
 cd advanced-retail-analytics-rfm
 ```
-
-Replace `YOUR_USERNAME` with your GitHub username.
 
 ### Step 2: Install Dependencies
 
 ```bash
-pip install -r requirements.txt
+pip install -r REQUIREMENTS.TXT
 ```
 
 ### Step 3: Run the Python Script
@@ -194,7 +192,7 @@ Ensure that `data.csv` is available in the working directory.
 advanced-retail-analytics-rfm/
 |
 |-- README.md
-|-- requirements.txt
+|-- REQUIREMENTS.TXT
 |-- data.csv
 |
 |-- Retail_Analytics_RFM_Updated.ipynb
@@ -266,4 +264,4 @@ https://archive.ics.uci.edu/dataset/352/online+retail
 
 GitHub: https://github.com/TYTKL456
 
-LinkedIn: https://www.linkedin.com/in/shreyas-kamat-ab0173233/
+LinkedIn: https://www.linkedin.com/in/shreyas-kamat-74a851450/
